@@ -13,7 +13,7 @@ namespace Milestone3
     public partial class Form1 : Form
     {
         InventoryManager manager; // An InventoryManager object
-        const string LISTBOXHEADER = "Item\t\tStock\t\tPrice"; // A string constant that will contain the header for the InventoryDisplay ListBox
+        const string LISTBOXHEADER = "Item\t\tStock\t\tPrice"; // A string constant that will contain the header for the InventoryDisplay ListBox. Made with help from Microsoft documentation (2021)
 
         public Form1()
         {
@@ -161,7 +161,7 @@ namespace Milestone3
             SearchResults.Items.Clear(); // The SearchResults listbox is cleared
 
             manager.Search(SearchBar.Text, out indeces, out items); // The manager object's Search method is called with the text of the SearchBar textbox, the indeces List, and the items List as parameters
-            SearchResults.Items.AddRange((from item in items select item.ItemName).ToArray<string>()); // LINQ is used to add the names of the found items to the SearchResults listbox
+            SearchResults.Items.AddRange((from item in items select item.ItemName).ToArray<string>()); // LINQ is used to add the names of the found items to the SearchResults listbox. Made with help from Codecademy (n.d.)
         }
 
         // This code runs when an item is selected in the SearchResults listbox. It selects the corresponding item in the InventoryDisplay listbox
@@ -180,3 +180,7 @@ namespace Milestone3
 
     }
 }
+
+// References:
+// Codecademy. (n.d.).Learn C#: Lists and LINQ. https://www.codecademy.com/learn/learn-c-sharp/modules/learn-csharp-lists-and-linq/cheatsheet
+// Microsoft. (2021, September 15). Character Escapes in Regular Expressions. https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-escapes-in-regular-expressions
