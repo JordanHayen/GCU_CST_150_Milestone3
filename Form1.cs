@@ -46,7 +46,7 @@ namespace Milestone3
             try
             {
                 manager.AddItem(new InventoryItem(ItemNameTextBox.Text, int.Parse(ItemStockTextBox.Text), double.Parse(ItemPriceTextBox.Text))); // Processes data from the TextBoxes for the new item's name, price and stock and uses that information to create a new InventoryItem, then add that InventoryItem to the manager object
-                InventoryDisplay.Items.Clear(); // Clears the InventoryDisplay ListBox
+                InventoryDisplay.Items.Clear(); // Clears the InventoryDisplay ListBox. Made with help from the textbook (Gaddis, 257)
                 InventoryDisplay.Items.Add(LISTBOXHEADER); // Adds the LISTBOXHEADER string to the InventoryDisplay ListBox
                 InventoryDisplay.Items.AddRange(manager.Display().ToArray()); // Calls the manager object's Display method, sets the result to an array, and adds the result to the InventoryDisplay ListBox
             }
@@ -94,7 +94,7 @@ namespace Milestone3
         {
             int selectedIndex = InventoryDisplay.SelectedIndex; // An integer variable that stores the selected index of the InventoryDisplay object at the start of the method
             manager.RemoveItem(manager.Items[InventoryDisplay.SelectedIndex - 1]); // The item selected is removed from the manager object
-            InventoryDisplay.Items.Clear(); // The InventoryDisplay listbox is cleared
+            InventoryDisplay.Items.Clear(); // The InventoryDisplay listbox is cleared. Made with help from the textbook (Gaddis, 257)
             InventoryDisplay.Items.Add(LISTBOXHEADER); // The LISTBOXHEADER string is added to the InventoryDisplay listbox
             InventoryDisplay.Items.AddRange(manager.Display().ToArray()); // Calls the manager object's Display method, sets the result to an array, and adds the result to the InventoryDisplay ListBox
             InventoryDisplay.SelectedIndex = selectedIndex - 1; // The selected index of the InventoryDisplay listbox is set to the selectedIndex variable minus one
@@ -112,7 +112,7 @@ namespace Milestone3
                 manager.Items[InventoryDisplay.SelectedIndex - 1].ItemName = ItemNameEditorTextBox.Text; // The name of the selected InventoryItem is set to the data entered in the textbox
                 manager.RestockItem(manager.Items[InventoryDisplay.SelectedIndex - 1], int.Parse(ItemStockEditorTextBox.Text) - manager.Items[InventoryDisplay.SelectedIndex - 1].Stock); // The stock of the selected InventoryItem is set to the data entered in the textbox
                 manager.Items[InventoryDisplay.SelectedIndex - 1].Price = double.Parse(ItemPriceEditorTextBox.Text);  // The price of the selected InventoryItem is set to the data entered in the textbox
-                InventoryDisplay.Items.Clear(); // The InventoryDisplay listbox is cleared
+                InventoryDisplay.Items.Clear(); // The InventoryDisplay listbox is cleared. Made with help from the textbook (Gaddis, 257)
                 InventoryDisplay.Items.Add(LISTBOXHEADER); // The LISTBOXHEADER string is added to the InventoryDisplay listbox
                 InventoryDisplay.Items.AddRange(manager.Display().ToArray()); // Calls the manager object's Display method, sets the result to an array, and adds the result to the InventoryDisplay ListBox
 
@@ -142,7 +142,7 @@ namespace Milestone3
             try 
             {
                 manager.RestockItem(manager.Items[InventoryDisplay.SelectedIndex - 1], int.Parse(AddStockTextBox.Text)); // The manager object's RestockItem method is called with the selected InventoryItem and the data from the textbox as parameters
-                InventoryDisplay.Items.Clear(); // The InventoryDisplay listbox is cleared
+                InventoryDisplay.Items.Clear(); // The InventoryDisplay listbox is cleared. Made with help from the textbook (Gaddis, 257)
                 InventoryDisplay.Items.Add(LISTBOXHEADER); // The LISTBOXHEADER string is added to the InventoryDisplay listbox
                 InventoryDisplay.Items.AddRange(manager.Display().ToArray()); // Calls the manager object's Display method, sets the result to an array, and adds the result to the InventoryDisplay ListBox
             }
@@ -184,3 +184,4 @@ namespace Milestone3
 // References:
 // Codecademy. (n.d.).Learn C#: Lists and LINQ. https://www.codecademy.com/learn/learn-c-sharp/modules/learn-csharp-lists-and-linq/cheatsheet
 // Microsoft. (2021, September 15). Character Escapes in Regular Expressions. https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-escapes-in-regular-expressions
+// Gaddis, T. (2020). Starting Out With Visual C#. Pearson.
