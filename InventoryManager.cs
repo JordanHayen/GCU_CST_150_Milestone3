@@ -45,7 +45,7 @@ namespace Milestone3
 
             for(int i = 0; i < Items.Count; i++) // This loop iterates once for every element in the Items List property
             {
-                result.Add(Items[i].ItemName + "\t\t" + Items[i].Stock + "\t\t$" + Items[i].Price); // The name, stock and price of the current InventoryItem are added to a formatted string and that string is added to the result List
+                result.Add(Items[i].ItemName + "\t\t" + Items[i].Stock + "\t\t$" + Items[i].Price); // The name, stock and price of the current InventoryItem are added to a formatted string and that string is added to the result List. Made with help from Microsoft documentation (2021)
             }
 
             return result; // The result List is returned
@@ -77,11 +77,11 @@ namespace Milestone3
 
             try
             {
-                // LINQ is used to search the Items List property. The Stock property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains all found objects
+                // LINQ is used to search the Items List property. The Stock property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains all found objects. Made with help from Codecademy (n.d.)
                 var itemStockQuery = from item in this.Items
                                      where item.Stock.ToString().Contains(int.Parse(searchTerm).ToString())
                                      select item;
-                // LINQ is used to search the Items List property. The Stock property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains the indeces of all found objects
+                // LINQ is used to search the Items List property. The Stock property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains the indeces of all found objects. Made with help from Codecademy (n.d.)
                 var itemStockIndexQuery = from item in this.Items
                                           where item.Stock.ToString().Contains(searchTerm)
                                           select Items.IndexOf(item);
@@ -100,11 +100,11 @@ namespace Milestone3
                     }
                 }
 
-                // LINQ is used to search the Items List property. The Price property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains all found objects
+                // LINQ is used to search the Items List property. The Price property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains all found objects. Made with help from Codecademy (n.d.)
                 var itemPriceQuery = from item in this.Items
                                      where item.Price.ToString().Contains(double.Parse(searchTerm).ToString())
                                      select item;
-                // LINQ is used to search the Items List property. The Price property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains the indeces of all found objects
+                // LINQ is used to search the Items List property. The Price property of each InventoryItem is compared to the searchTerm parameter by using the ToString method and the Contains method. The result is an object that contains the indeces of all found objects. Made with help from Codecademy (n.d.)
                 var itemPriceIndexQuery = from item in this.Items
                                           where item.Price.ToString().Contains(double.Parse(searchTerm).ToString())
                                           select Items.IndexOf(item);
@@ -148,4 +148,5 @@ namespace Milestone3
 }
 
 // References:
-// https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-escapes-in-regular-expressions
+// Codecademy. (n.d.).Learn C#: Lists and LINQ. https://www.codecademy.com/learn/learn-c-sharp/modules/learn-csharp-lists-and-linq/cheatsheet
+// Microsoft. (2021, September 15). Character Escapes in Regular Expressions. https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-escapes-in-regular-expressions
